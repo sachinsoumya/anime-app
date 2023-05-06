@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter as Router, Route} from 'react-router-dom/cjs/react-router-dom.min';
+
+import Footer from './Components/Footer';
+import TopAnime from './Components/Home/TopAnime';
+import Navbar from './Components/Navbar';
+import Details from './Components/Home/Details';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  <div>
+
+
+    <Router>
+     
+
+
+
+      <Navbar/>
+
+      
+        
+          <Route exact path="/"> <TopAnime type="Top" filter="undefined"/></Route>
+          <Route  path="/movies"> <TopAnime type="movie" filter="undefined" /></Route>
+          <Route  path="/series"> <TopAnime type="tv" filter="undefined" /></Route>
+          <Route  path="/popular"><TopAnime type="popular" filter="bypopularity" /></Route>
+          <Route  path="/upcoming"><TopAnime type="upcoming" filter="upcoming" /></Route>
+          <Route  path="/type/:dataId" component={Details} /> 
+        
+        <Footer />
+      
+
+    </Router>
     </div>
+
+
+
   );
 }
 
