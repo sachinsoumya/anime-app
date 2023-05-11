@@ -1,7 +1,33 @@
 import React, { Component } from 'react'
-import { NavLink } from "react-router-dom"; 
+import { NavLink  , withRouter} from "react-router-dom"; 
 
-export default class Navbar extends Component {
+ class Navbar extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            data:""
+        }
+    }
+
+     getData=(e)=>{
+        const v = e.target.value;
+        console.log(v.length);
+        if(v.length===0){
+            this.props.history.goBack();
+        }else{
+        console.log(this.props.location.pathname);
+        this.props.history.push(`${this.props.location.pathname}`);
+        fetch(`https://api.jikan.moe/v4/anime?q=${v}&sfw`)
+        .then((res)=>res.json())
+        .then((result)=>
+        this.props.getData(result.data)
+        //  this.setState({data:result.data}) ,
+        );
+        }
+        // this.props.getData(this.state.data);
+      
+        
+     }
     render() {
         return (
             <div>
@@ -12,7 +38,7 @@ export default class Navbar extends Component {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav mx-auto mb-2 mb-lg-0 nav-pills">
+                            <ul className="navbar-nav mx-3 mb-2 mb-lg-0 ">
                                
                                 <li className="nav-item mx-lg-4">
                                     <NavLink className="nav-link active" aria-current="page" to="/">Top</NavLink>
@@ -35,10 +61,10 @@ export default class Navbar extends Component {
                                 
                                 
                             </ul>
-                            {/* <form className="d-flex" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                    <button className="btn btn-outline-success" type="submit">Search</button>
-                            </form> */}
+                            <form className="d-flex" >
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchValue"  onChange={this.getData}/>
+                                <NavLink to="/search"><button className="btn btn-outline-success" type="button"  >Search</button></NavLink>
+                            </form>
                         </div>
                     </div>
                 </nav>
@@ -47,3 +73,4 @@ export default class Navbar extends Component {
         )
     }
 }
+export default withRouter(Navbar);

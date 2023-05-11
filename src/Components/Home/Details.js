@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Details.css";
 import Review from "./Review";
+import Recomanndation from "./Recomanndation";
+import { Route } from "react-router-dom/cjs/react-router-dom.min";
 
 const durl = "https://api.jikan.moe/v4/anime"
 
@@ -12,10 +14,14 @@ export default class Details extends Component {
     this.state = {
       details: "",
       imageDetails: "",
-      trailerDetails: ""
+      trailerDetails: "",
+     
     }
 
   }
+
+   
+  
 
   render() {
     if (this.state.details) {
@@ -26,58 +32,58 @@ export default class Details extends Component {
               <img
                 src={this.state.imageDetails.large_image_url}
                 alt="pic"
-                class="img-fluid object-fit-cover rounded"
+                className="img-fluid object-fit-cover rounded"
               />
             </div>
-            <div class="col-12 col-md-7">
-              <div class="container-fluid text-dark">
-                <div class="text-danger h1 mt-2">{this.state.details.title_english}</div>
-                <div class="d-flex flex-wrap mt-3 fs-1 justify-evenly pt-1">
+            <div className="col-12 col-md-7">
+              <div className="container-fluid text-dark">
+                <div className="text-danger h1 mt-2">{this.state.details.title_english}</div>
+                <div className="d-flex flex-wrap mt-3 fs-1 justify-evenly pt-1">
                   <div>Genere -</div>
                   <div>{this.state.details.genres[0].name}</div>
                 </div>
-                <div class="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
                   <div>rating -</div>
                   <div>{this.state.details.rating}</div>
 
 
                 </div>
-                <div class="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
                   <div>Type -</div>
                   <div>{this.state.details.type}</div>
 
 
                 </div>
 
-                <div class="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
                   <div>Duration -</div>
                   <div>{this.state.details.duration}</div>
 
 
                 </div>
-                <div class="d-flex mt-3 mt-md-1 mt-lg-4  fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4  fs-6 flex-wrap pt-1 fw-bold ">
                   <div>episodes -</div>
                   <div>{this.state.details.episodes}</div>
 
 
                 </div>
-                <div class="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
                   <div>rank -</div>
                   <div>{this.state.details.rank}</div>
                 </div>
-                <div class="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
                   <div>favorites -</div>
                   <div>{this.state.details.favorites}</div>
                 </div>
-                <div class="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold text-warning ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold text-warning ">
                   <div>IMDB -</div>
                   <div>{this.state.details.score}</div>
                 </div>
-                <div class="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
                   <div>Popularity -</div>
                   <div>{this.state.details.popularity}</div>
                 </div>
-                <div class="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
                   <div>Year -</div>
                   <div>{this.state.details.year}</div>
                 </div>
@@ -113,6 +119,10 @@ export default class Details extends Component {
           </div>
 
           <Review id={this.props.match.params.dataId} />
+         
+
+          <Recomanndation id={this.props.match.params.dataId} getData={this.getData} />
+         
 
         </div>
       );
@@ -135,6 +145,7 @@ export default class Details extends Component {
     fetch(`${durl}/${id}`, { method: "GET" })
       .then((res) => res.json())
       .then((result) => this.setState({ details: result.data, imageDetails: result.data.images.jpg, trailerDetails: result.data.trailer }))
+     
   }
 
 }

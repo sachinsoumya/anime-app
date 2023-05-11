@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
+import { NavLink} from 'react-router-dom/cjs/react-router-dom.min'
+
 
 const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
 
-export default class TopAnime extends Component {
+ class TopAnime extends Component {
 
   constructor(props) {
     super(props)
@@ -67,12 +68,17 @@ export default class TopAnime extends Component {
   }
 
   componentDidMount() {
-    fetch(`${topUrl}&type=${this.props.type}&filter=${this.props.filter}`, { method: "GET" })
-      .then((res) => res.json())
-      .then((result) => this.setState({ animeDetails: result.data }))
+    if (this.props.data) {
+      
+      console.log(this.props.data);
+      this.setState({ animeDetails: this.props.data });
+      
 
-
-
-
+    } else {
+      fetch(`${topUrl}&type=${this.props.type}&filter=${this.props.filter}`, { method: "GET" })
+        .then((res) => res.json())
+        .then((result) => this.setState({ animeDetails: result.data }))
+    }
   }
 }
+export default TopAnime;

@@ -14,7 +14,7 @@ export default class Review extends Component {
             return newArr.map((item) => {
                 return (
                     <>
-                        <div class="col-md-1 col-10">
+                        <div class="col-md-1 col-10" key={item.mal_id}>
                             <img
                                 class="ms-md-4 ms-0 object-fit-cover w-50 img-fluid "
                                 src= {item.user.images.jpg.image_url}
