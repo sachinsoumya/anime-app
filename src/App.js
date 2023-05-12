@@ -5,6 +5,9 @@ import Footer from './Components/Footer';
 import TopAnime from './Components/Home/TopAnime';
 import Navbar from './Components/Navbar';
 import Details from './Components/Home/Details';
+import Moredetails from './Components/Home/Moredetails';
+
+
 // import { useEffect, useState } from 'react';
 
 export default class App extends Component {
@@ -20,12 +23,17 @@ export default class App extends Component {
     console.log(data);
     this.setState({searchData:data})
   }
+  
+
+  
+  
 
   
   render() {
+    
     return (
 
-      <div>
+      <div >
 
 
         <Router>
@@ -44,7 +52,10 @@ export default class App extends Component {
           <Route path="/upcoming"><TopAnime type="upcoming" filter="upcoming"  /></Route>
           <Route path="/search"><TopAnime type="Top" filter="undefined"  data={this.state.searchData}/></Route>
           <Route path="/type/:dataId" component={Details} />
-          <Route path={`/details/recommendations${this.state.id}/:dataId`} component={Details} />
+          <Route path={`/more/:dataId`} component={Moredetails}/> 
+          <Route path="/recommendations/:dataId" component={Details} />
+
+          
 
 
 
@@ -61,13 +72,10 @@ export default class App extends Component {
 
 
   }
+  
 
-  componentDidMount(){
-    let s = sessionStorage.getItem('id');
-    this.setState({id:s})
-    console.log(s);
-
-  }
+  
+  
 }
 
 

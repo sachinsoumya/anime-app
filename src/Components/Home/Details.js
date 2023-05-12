@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Details.css";
 import Review from "./Review";
 import Recomanndation from "./Recomanndation";
-import { Route } from "react-router-dom/cjs/react-router-dom.min";
+// import { Route } from "react-router-dom/cjs/react-router-dom.min";
 
 const durl = "https://api.jikan.moe/v4/anime"
 
@@ -15,13 +15,15 @@ export default class Details extends Component {
       details: "",
       imageDetails: "",
       trailerDetails: "",
-     
+
     }
 
   }
 
-   
-  
+
+
+
+
 
   render() {
     if (this.state.details) {
@@ -87,7 +89,7 @@ export default class Details extends Component {
                   <div>Year -</div>
                   <div>{this.state.details.year}</div>
                 </div>
-                
+
 
 
               </div>
@@ -101,16 +103,16 @@ export default class Details extends Component {
             </div>
             <div>
               <div className="display-4">Trailer</div>
-              <center>
+              {this.state.trailerDetails ? <center>
                 <iframe
                   class="w-100  my-5 lamba"
                   src={this.state.trailerDetails.embed_url}
-                  title="鋼の錬金術師 ２００９"
+                  title={this.state.details.title}
                   frameborder="0"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
-              </center>
+              </center> : <div className="h3">No trailer available</div>}
 
             </div>
             {/* <center>
@@ -119,10 +121,10 @@ export default class Details extends Component {
           </div>
 
           <Review id={this.props.match.params.dataId} />
-         
+
 
           <Recomanndation id={this.props.match.params.dataId} getData={this.getData} />
-         
+
 
         </div>
       );
@@ -141,11 +143,13 @@ export default class Details extends Component {
   }
 
   componentDidMount() {
+
     let id = this.props.match.params.dataId;
+
     fetch(`${durl}/${id}`, { method: "GET" })
       .then((res) => res.json())
       .then((result) => this.setState({ details: result.data, imageDetails: result.data.images.jpg, trailerDetails: result.data.trailer }))
-     
+
   }
 
 }

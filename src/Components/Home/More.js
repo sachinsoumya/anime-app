@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter, NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 const nurl = "https://api.jikan.moe/v4/anime"
 
-class Recomanndation extends Component {
+class More extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -26,7 +26,7 @@ class Recomanndation extends Component {
 
 
                             <div className="col-4 col-md-3 col-lg-2 my-3 my-lg-0 " key={item.entry.mal_id} >
-                                <NavLink to={`/more/${item.entry.mal_id}`}  >
+                                <NavLink to={`/recommendations/${item.entry.mal_id}`}  >
                                     <img src={item.entry.images.jpg.image_url} alt="pic" className="w-75 rounded-2" />
                                     <div className="h6 text-dark">{item.entry.title}</div>
                                 </NavLink>
@@ -53,10 +53,9 @@ class Recomanndation extends Component {
             return (
                 <div className="h3">No similar content</div>
             )
+
         }
     }
-
-
 
     render() {
 
@@ -78,4 +77,4 @@ class Recomanndation extends Component {
             .then((result) => result.data.length > 12 ? this.setState({ recommendations: result.data.slice(0, 12) }) : this.setState({ recommendations: result.data }));
     }
 }
-export default withRouter(Recomanndation);
+export default withRouter(More);

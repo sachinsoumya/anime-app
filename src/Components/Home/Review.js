@@ -10,16 +10,19 @@ export default class Review extends Component {
     }
     arrReview = () => {
         if (this.state.reviewDetails) {
-            let newArr = this.state.reviewDetails.slice(0, 4);
-            return newArr.map((item) => {
-                return (
-                    <>
-                        <div class="col-md-1 col-10" key={item.mal_id}>
-                            <img
-                                class="ms-md-4 ms-0 object-fit-cover w-50 img-fluid "
-                                src= {item.user.images.jpg.image_url}
-                                alt="Generic placeholder"
-                            />
+
+
+            if (this.state.reviewDetails) {
+                let newArr = this.state.reviewDetails.slice(0, 4);
+                return newArr.map((item) => {
+                    return (
+                        <>
+                            <div class="col-md-1 col-10" key={item.mal_id}>
+                                <img
+                                    class="ms-md-4 ms-0 object-fit-cover w-50 img-fluid "
+                                    src={item.user.images.jpg.image_url}
+                                    alt="Generic placeholder"
+                                />
                             </div>
                             <div class="col-md-11 col-12">
                                 <h5 class="mt-0 text-info">{item.user.username}</h5>
@@ -28,87 +31,56 @@ export default class Review extends Component {
                                     <a class="btn btn-secondary btn-sm my-md-1 my-2" data-bs-toggle="collapse" href={`#${item.mal_id}`} role="button" aria-expanded="false" aria-controls="collapseExample">
                                         Read full review
                                     </a>
-                                    
+
                                 </span>
                                 <div class="collapse w-100" id={item.mal_id}>
                                     <div class="card card-body">
-                                      {item.review.slice(0,750)}
+                                        {item.review.slice(0, 750)}
                                     </div>
                                 </div>
                             </div>
-                        
-                    </>
 
-                )
-            })
-        }else{
+                        </>
+
+                    )
+                })
+            } else {
+                return (
+                    <div className="text-center my-5">
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                );
+
+
+            }
+        } else {
             return (
-                <div className="text-center my-5">
-                  <div className="spinner-border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                  </div>
-                </div>
-              );
-        
-
+                <div className='h3'>No review yet</div>
+            )
         }
-
-
-        // return (
-        //     <>
-        //         <div class="media d-flex">
-        //             <img
-        //                 class="mx-3 align-self-start"
-        //                 src="https://cdn.myanimelist.net/images/anime/1208/94745t.jpg"
-        //                 alt="Generic placeholder"
-        //             />
-        //             <div class="media-body">
-        //                 <h5 class="mt-0">Media heading</h5>
-        //                  {item.review}
-        //{`#${item.mal_id}`}
-        //             </div>
-        //         </div>
-        //     </>
-        // )
-    //     <div class="media d-flex">
-    //     <img
-    //         class="mx-3 align-self-start"
-    //         src="https://cdn.myanimelist.net/images/anime/1208/94745t.jpg"
-    //         alt="Generic placeholder"
-    //     />
-    //     <div class="media-body">
-    //         <h5 class="mt-0">Media heading</h5>
-    //         <div>{item.review.slice(0, 200)}</div>
-    //         <span className='mx-md-2  mx-0'>
-    //             <a class="btn btn-secondary btn-sm" data-bs-toggle="collapse" href={`#${item.mal_id}`} role="button" aria-expanded="false" aria-controls="collapseExample">
-    //                 Read full review
-    //             </a>
-                
-    //         </span>
-    //         <div class="collapse w-100" id={item.mal_id}>
-    //             <div class="card card-body">
-    //               {item.review.slice(0,750)}
-    //             </div>
-    //         </div>
-    //     </div>
-    // </div>
-
-
-
-
-
-
     }
+
+
+
+
+
+
+
+
+
+
 
     render() {
         return (
             <div>
                 <div className="display-5">Reviews</div>
                 <div className="row my-2">
-                  {this.arrReview()}
+                    {this.arrReview()}
 
                 </div>
-               
+
 
 
             </div>
