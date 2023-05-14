@@ -4,9 +4,9 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <div className="footer bg-dark mt-4 text-white">
+        <div className="footer bg-black mt-5 text-white ">
           <div className="h5 text-center">
-            Copyright Developer 2023. All Rights Reserved
+            @Sachin Developer 2023. All Rights Reserved
           </div>
           <div className="d-flex justify-content-evenly">
             <div>
@@ -14,13 +14,13 @@ export default class Footer extends Component {
               <div>Orders</div>
             </div>
             <div>
-              <div>About</div>
-              <div>Orders</div>
+              <div>Contact</div>
+              <div>FAQS</div>
 
             </div>
             <div>
-              <div>About</div>
-              <div>Orders</div>
+              <div>Privacy</div>
+              <div>Terms of use</div>
 
             </div>
 

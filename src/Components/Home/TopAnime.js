@@ -23,8 +23,8 @@ const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
             <div key={item.mal_id} className='col-12 col-md-4 col-lg-2'>
               <NavLink to={`/type/${item.mal_id}`}>
                 <figure>
-                  <img src={item.images.jpg.image_url} alt='images' className='w-100 h-75' />
-                  <figcaption className="figure-caption h4 fs-6 pt-2 fw-bold">{item.title_english}</figcaption>
+                  <img src={item.images.jpg.image_url} alt='images' className='w-100 h-75 rounded-2 ' />
+                  <figcaption className="figure-caption h4 fs-6 pt-2 fw-bold text-secondary">{item.title_english}</figcaption>
 
                 </figure>
               </NavLink>
@@ -55,7 +55,7 @@ const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
 
 
       <div className="container-fluid">
-        <div className='text-primary mt-5 h1 fw-bold fst-italic'>{this.props.type}</div>
+        <div className='text-primary mt-5 h1 fw-bold fst-italic'>{`${this.props.type[0].toUpperCase()}${this.props.type.slice(1,this.props.type.length)}`}</div>
         <div className="row justify-content-center gx-3 my-3">
           {this.displayAnime()}
 

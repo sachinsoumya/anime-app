@@ -57,7 +57,7 @@ export default class Review extends Component {
             }
         } else {
             return (
-                <div className='h3'>No review yet</div>
+                <div className='h3 text-danger'>No review yet</div>
             )
         }
     }
@@ -76,7 +76,7 @@ export default class Review extends Component {
         return (
             <div>
                 <div className="display-5">Reviews</div>
-                <div className="row my-2">
+                <div className="row my-3">
                     {this.arrReview()}
 
                 </div>

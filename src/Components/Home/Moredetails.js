@@ -3,6 +3,7 @@ import "./Details.css";
 import Review from "./Review";
 // import Recomanndation from "./Recomanndation";
 import More from "./More";
+
 // import { Route } from "react-router-dom/cjs/react-router-dom.min";
 
 const durl = "https://api.jikan.moe/v4/anime"
@@ -39,7 +40,7 @@ export default class Moredetails extends Component {
                             />
                         </div>
                         <div className="col-12 col-md-7">
-                            <div className="container-fluid text-dark">
+                            <div className="container-fluid ">
                                 <div className="text-danger h1 mt-2">{this.state.details.title_english}</div>
                                 <div className="d-flex flex-wrap mt-3 fs-1 justify-evenly pt-1">
                                     <div>Genere -</div>
@@ -98,15 +99,15 @@ export default class Moredetails extends Component {
                     </div>
                     <div>
 
-                        <div class="display-3">Description</div>
-                        <div>
+                        <div className="display-3 my-2">Description</div>
+                        <div className="mt-2">
                             {this.state.details.synopsis}
                         </div>
                         <div>
                             <div className="display-4">Trailer</div>
                             <center>
                                 <iframe
-                                    class="w-100  my-5 lamba"
+                                    className="w-100  my-5 lamba"
                                     src={this.state.trailerDetails.embed_url}
                                     title="鋼の錬金術師 ２００９"
                                     frameborder="0"
@@ -122,6 +123,7 @@ export default class Moredetails extends Component {
                     </div>
 
                     <Review id={this.props.match.params.dataId} />
+                    
 
 
                     <More id={this.props.match.params.dataId} getData={this.getData} />

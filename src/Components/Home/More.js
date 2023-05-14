@@ -28,7 +28,7 @@ class More extends Component {
                             <div className="col-4 col-md-3 col-lg-2 my-3 my-lg-0 " key={item.entry.mal_id} >
                                 <NavLink to={`/recommendations/${item.entry.mal_id}`}  >
                                     <img src={item.entry.images.jpg.image_url} alt="pic" className="w-75 rounded-2" />
-                                    <div className="h6 text-dark">{item.entry.title}</div>
+                                    <div className="h6 text-secondary">{item.entry.title}</div>
                                 </NavLink>
 
                             </div>
@@ -51,7 +51,7 @@ class More extends Component {
             }
         } else {
             return (
-                <div className="h3">No similar content</div>
+                <div className="h3 text-danger">No similar content</div>
             )
 
         }
@@ -70,7 +70,7 @@ class More extends Component {
         )
     }
     componentDidMount() {
-        // console.log(this.props.getFun)
+        
 
         fetch(`${nurl}/${this.props.id}/recommendations`)
             .then((res) => res.json())

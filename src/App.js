@@ -8,56 +8,58 @@ import Details from './Components/Home/Details';
 import Moredetails from './Components/Home/Moredetails';
 
 
-// import { useEffect, useState } from 'react';
+
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      id: "",
-      searchData:""
+      color: "white",
+      searchData: ""
     }
   }
 
-  getResults=(data)=>{
+  getResults = (data) => {
     console.log(data);
-    this.setState({searchData:data})
+    this.setState({ searchData: data })
   }
-  
+  changeThem = () => {
+    let body = document.getElementById('myApp');
+    if (body.classList.contains('bg-white')) {
+      body.classList.remove('bg-white')
+      body.classList.add('bg-dark');
+      body.classList.add('text-white');
+      this.setState({ color: "black" })
+      
+    } else {
+      body.classList.remove('bg-dark');
+      body.classList.remove('text-white');
+      body.classList.add('bg-white');
+      this.setState({ color: "white" })
+    }
 
-  
-  
+  }
 
-  
+
+
+
+
+
   render() {
-    
     return (
-
-      <div >
-
-
+      <div id="myApp" className='bg-white' >
         <Router>
+          <Navbar getData={this.getResults} selectThem={this.changeThem} color={this.state.color} />
 
-
-
-
-          <Navbar getData={this.getResults} />
-
-
-
-          <Route exact path="/"> <TopAnime type="Top" filter="undefined"  /></Route>
+          <Route exact path="/"> <TopAnime type="Top" filter="undefined" /></Route>
           <Route path="/movies"> <TopAnime type="movie" filter="undefined" /></Route>
           <Route path="/series"> <TopAnime type="tv" filter="undefined" /></Route>
-          <Route path="/popular"><TopAnime type="popular" filter="bypopularity"   /></Route>
-          <Route path="/upcoming"><TopAnime type="upcoming" filter="upcoming"  /></Route>
-          <Route path="/search"><TopAnime type="Top" filter="undefined"  data={this.state.searchData}/></Route>
+          <Route path="/popular"><TopAnime type="popular" filter="bypopularity" /></Route>
+          <Route path="/upcoming"><TopAnime type="upcoming" filter="upcoming" /></Route>
+          <Route path="/search"><TopAnime type="Top" filter="undefined" data={this.state.searchData} /></Route>
           <Route path="/type/:dataId" component={Details} />
-          <Route path={`/more/:dataId`} component={Moredetails}/> 
+          <Route path={`/more/:dataId`} component={Moredetails} />
           <Route path="/recommendations/:dataId" component={Details} />
-
-          
-
-
 
           <Footer />
 
@@ -72,10 +74,10 @@ export default class App extends Component {
 
 
   }
-  
 
-  
-  
+
+
+
 }
 
 
