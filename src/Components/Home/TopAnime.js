@@ -54,7 +54,7 @@ const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
 
 
 
-      <div className="container-fluid">
+      <div className="container-fluid py-1">
         <div className='text-primary mt-5 h1 fw-bold fst-italic'>{`${this.props.type[0].toUpperCase()}${this.props.type.slice(1,this.props.type.length)}`}</div>
         <div className="row justify-content-center gx-3 my-3">
           {this.displayAnime()}

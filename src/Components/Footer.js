@@ -4,7 +4,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <div className="footer bg-black mt-5 text-white ">
+        <div className="footer bg-black mt-5 text-white">
           <div className="h5 text-center">
             @Sachin Developer 2023. All Rights Reserved
           </div>

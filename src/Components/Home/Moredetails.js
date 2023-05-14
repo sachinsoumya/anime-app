@@ -47,8 +47,8 @@ export default class Moredetails extends Component {
                                     <div>{this.state.details.genres[0].name}</div>
                                 </div>
                                 <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
-                                    <div>rating -</div>
-                                    <div>{this.state.details.rating}</div>
+                                    <div>Rating -</div>
+                                    <div className="text-info">{this.state.details.rating}</div>
 
 
                                 </div>
@@ -66,17 +66,17 @@ export default class Moredetails extends Component {
 
                                 </div>
                                 <div className="d-flex mt-3 mt-md-1 mt-lg-4  fs-6 flex-wrap pt-1 fw-bold ">
-                                    <div>episodes -</div>
+                                    <div>Episodes -</div>
                                     <div>{this.state.details.episodes}</div>
 
 
                                 </div>
                                 <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
-                                    <div>rank -</div>
+                                    <div>Rank -</div>
                                     <div>{this.state.details.rank}</div>
                                 </div>
                                 <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
-                                    <div>favorites -</div>
+                                    <div>Favorites -</div>
                                     <div>{this.state.details.favorites}</div>
                                 </div>
                                 <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold text-warning ">
