@@ -47,16 +47,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id="myApp" className='bg-white' >
+      <div id="myApp" className='bg-white overflow-hidden' >
         <Router>
           <Navbar getData={this.getResults} selectThem={this.changeThem} color={this.state.color} />
 
-          <Route exact path="/"> <TopAnime type="Top" filter="undefined" /></Route>
-          <Route path="/movies"> <TopAnime type="movie" filter="undefined" /></Route>
-          <Route path="/series"> <TopAnime type="tv" filter="undefined" /></Route>
-          <Route path="/popular"><TopAnime type="popular" filter="bypopularity" /></Route>
-          <Route path="/upcoming"><TopAnime type="upcoming" filter="upcoming" /></Route>
-          <Route path="/search"><TopAnime type="Top" filter="undefined" data={this.state.searchData} /></Route>
+          <Route exact path="/"> <TopAnime title="top" /></Route>
+          <Route path="/movies"> <TopAnime type="movie" title="movie" /></Route>
+          <Route path="/series"> <TopAnime type="tv" title="TV" /></Route>
+          <Route path="/popular"><TopAnime  filter="bypopularity" title="popular" /></Route>
+          <Route path="/favorite"><TopAnime filter="favorite" title="favorite" /></Route>
+          <Route path="/search"><TopAnime title="searchs"  data={this.state.searchData} /></Route>
           <Route path="/type/:dataId" component={Details} />
           <Route path={`/more/:dataId`} component={Moredetails} />
           <Route path="/recommendations/:dataId" component={Details} />

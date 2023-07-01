@@ -51,13 +51,13 @@ class Navbar extends Component {
                                 </li>
 
                                 <li className="nav-item mx-lg-4">
-                                    <NavLink className="nav-link" to="/series">Series</NavLink>
+                                    <NavLink className="nav-link" to="/series">TV</NavLink>
                                 </li>
                                 <li className="nav-item mx-lg-4">
                                     <NavLink className="nav-link" to="/popular">Popular</NavLink>
                                 </li>
                                 <li className="nav-item mx-lg-4">
-                                    <NavLink className="nav-link" to="/upcoming">Upcoming</NavLink>
+                                    <NavLink className="nav-link" to="/favorite">Favorite</NavLink>
                                 </li>
 
 

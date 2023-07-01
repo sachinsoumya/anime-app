@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink} from 'react-router-dom/cjs/react-router-dom.min'
 
 
+
 const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
 
  class TopAnime extends Component {
@@ -10,7 +11,9 @@ const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
     super(props)
     this.state = {
       animeDetails: "",
-      defaultValue: 'Top'
+      defaultValue: 'Top',
+      type:"",
+      filter:""
     }
   }
 
@@ -55,7 +58,7 @@ const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
 
 
       <div className="container-fluid py-1">
-        <div className='text-primary mt-5 h1 fw-bold fst-italic'>{`${this.props.type[0].toUpperCase()}${this.props.type.slice(1,this.props.type.length)}`}</div>
+        {this.props.title?<div className='text-primary mt-5 h1 fw-bold fst-italic'>{`${this.props.title[0].toUpperCase()}${this.props.title.slice(1,this.props.title.length)}`}</div>:<div className='text-danger mt-5 h1 fw-bold fst-italic'>Not specifying</div>}
         <div className="row justify-content-center gx-3 my-3">
           {this.displayAnime()}
 
@@ -75,10 +78,27 @@ const topUrl = "https://api.jikan.moe/v4/top/anime?limit=18"
       
 
     } else {
-      fetch(`${topUrl}&type=${this.props.type}&filter=${this.props.filter}`, { method: "GET" })
+      if(this.props.type){
+        this.setState({type:this.props.type})
+        fetch(`${topUrl}&type=${this.props.type}`, { method: "GET" })
         .then((res) => res.json())
         .then((result) => this.setState({ animeDetails: result.data }))
+    }else if(this.props.filter){
+      this.setState({filter:this.props.filter})
+      fetch(`${topUrl}&filter=${this.props.filter}`, { method: "GET" })
+      .then((res) => res.json())
+      .then((result) => this.setState({ animeDetails: result.data }))
+
+    }else{
+      fetch(`${topUrl}`, { method: "GET" })
+      .then((res) => res.json())
+      .then((result) => this.setState({ animeDetails: result.data }))
+
+
     }
   }
 }
+}
 export default TopAnime;
+
+//&type=${this.props.type}&filter=${this.props.filter}
