@@ -9,25 +9,27 @@ class Navbar extends Component {
         }
     }
 
-    getData = (e) => {
-        const v = e.target.value;
-        console.log(v.length);
-        if (v.length === 0) {
-            this.props.history.goBack();
-        } else {
-            console.log(this.props.location.pathname);
-            this.props.history.push(`${this.props.location.pathname}`);
-            fetch(`https://api.jikan.moe/v4/anime?q=${v}&sfw`)
-                .then((res) => res.json())
-                .then((result) =>
-                    this.props.getData(result.data)
-                    
-                );
-        }
-       
+   
 
-
+getData = (e) => {
+    const v = e.target.value;
+    console.log(v.length);
+    if (v.length <=1) {
+        this.props.history.push('/');
+    } else {
+        console.log(this.props.location.pathname);
+        this.props.history.push(`${this.props.location.pathname}`);
+        fetch(`https://api.jikan.moe/v4/anime?q=${v}&sfw`)
+            .then((res) => res.json())
+            .then((result) =>
+                this.props.getData(result.data)
+                
+            );
     }
+   
+
+
+}
     render() {
         return (
             <div>
@@ -40,9 +42,12 @@ class Navbar extends Component {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mx-3 mb-2 mb-lg-0 ">
+                            <li className="nav-item mx-lg-4">
+                                    <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+                                </li>
 
                                 <li className="nav-item mx-lg-4">
-                                    <NavLink className="nav-link active" aria-current="page" to="/">Top</NavLink>
+                                    <NavLink className="nav-link " aria-current="page" to="/top">Top</NavLink>
                                 </li>
 
 
@@ -63,8 +68,8 @@ class Navbar extends Component {
 
                             </ul>
                             <form className="d-flex" >
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchValue" onChange={this.getData} />
-                                <NavLink to="/search"><button className="btn btn-outline-light" type="button"  ><i className="bi bi-search"></i></button></NavLink>
+                                <input className="form-control me-2" type="search" placeholder="search upto 3 chars" aria-label="Search" id="searchValue"  maxlength="3"  onChange={this.getData} />
+                                <NavLink  to="/search"> <button className="btn btn-outline-light" type="button" ><i className="bi bi-search"></i></button></NavLink>
                             </form>
                             {this.props.color === "white" ?
                                 <div className='mx-md-4 mt-md-0 mx-auto mt-2'><i className="bi bi-moon-stars text-white" onClick={this.props.selectThem}></i></div>

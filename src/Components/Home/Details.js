@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import "./Details.css";
 import Review from "./Review";
 import Recomanndation from "./Recomanndation";
+import { withRouter } from 'react-router-dom';
 
-// import { Route } from "react-router-dom/cjs/react-router-dom.min";
+
+
 
 const durl = "https://api.jikan.moe/v4/anime"
 
 
-export default class Details extends Component {
+class Details extends Component {
 
   constructor(props) {
     super(props)
@@ -18,9 +20,15 @@ export default class Details extends Component {
       trailerDetails: "",
 
     }
+    this.countRef = React.createRef(false);
 
   }
 
+  goBack = () => {
+    this.props.history.goBack();
+
+
+  }
 
 
 
@@ -40,53 +48,53 @@ export default class Details extends Component {
             </div>
             <div className="col-12 col-md-7">
               <div className="container-fluid ">
-                <div className="text-danger h1 mt-2">{this.state.details.title_english}</div>
-                <div className="d-flex flex-wrap mt-3 fs-1 justify-evenly pt-1">
+                <div className="text-danger h1 mt-2 font fw-bold ">{this.state.details.title_english}</div>
+                <div className="d-flex flex-wrap mt-3 fs-1 justify-evenly pt-1 font ">
                   <div>Genere -</div>
                   <div>{this.state.details.genres[0].name}</div>
                 </div>
-                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font ">
                   <div>Rating -</div>
                   <div className="text-info">{this.state.details.rating}</div>
 
 
                 </div>
-                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font">
                   <div>Type -</div>
                   <div>{this.state.details.type}</div>
 
 
                 </div>
 
-                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font">
                   <div>Duration -</div>
                   <div>{this.state.details.duration}</div>
 
 
                 </div>
-                <div className="d-flex mt-3 mt-md-1 mt-lg-4  fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4  fs-6 flex-wrap pt-1 fw-bold font ">
                   <div>Episodes -</div>
                   <div>{this.state.details.episodes}</div>
 
 
                 </div>
-                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold">
+                <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font">
                   <div>Rank -</div>
                   <div>{this.state.details.rank}</div>
                 </div>
-                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font ">
                   <div>Favorites -</div>
                   <div>{this.state.details.favorites}</div>
                 </div>
-                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold text-warning ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold text-warning font ">
                   <div>IMDB -</div>
                   <div>{this.state.details.score}</div>
                 </div>
-                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font  ">
                   <div>Popularity -</div>
                   <div>{this.state.details.popularity}</div>
                 </div>
-                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold ">
+                <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font ">
                   <div>Year -</div>
                   <div>{this.state.details.year}</div>
                 </div>
@@ -98,15 +106,15 @@ export default class Details extends Component {
           </div>
           <div>
 
-            <div className="display-3 my-2">Description</div>
-            <div className="mt-2">
+            <div className="display-5 my-2 font1">Description</div>
+            <div className="my-3">
               {this.state.details.synopsis}
             </div>
             <div>
-              <div className="display-4">Trailer</div>
+              <div className="display-5 font1">Trailer</div>
               {this.state.trailerDetails ? <center>
                 <iframe
-                  className="w-100  my-5 lamba"
+                  className="w-100  my-4 lamba"
                   src={this.state.trailerDetails.embed_url}
                   title={this.state.details.title}
                   frameborder="0"
@@ -116,16 +124,16 @@ export default class Details extends Component {
               </center> : <div className="h3">No trailer available</div>}
 
             </div>
-            {/* <center>
-              <div class="btn btn-primary btn-lg"><a href="https://www.crunchyroll.com/series/GRGGPG93R/fullmetal-alchemist-brotherhood" class="text-white text-decoration-none">Watch all episodes</a></div>
-            </center> */}
+
           </div>
 
           <Review id={this.props.match.params.dataId} />
-         
+
 
 
           <Recomanndation id={this.props.match.params.dataId} getData={this.getData} />
+
+          <button className="btn btn-primary" onClick={this.goBack}><i class="bi bi-chevron-left"></i>Go Back </button>
 
 
         </div>
@@ -145,14 +153,32 @@ export default class Details extends Component {
   }
 
   componentDidMount() {
+    if (!this.countRef.current) {
+      const getData = () => {
 
-    let id = this.props.match.params.dataId;
 
-    fetch(`${durl}/${id}`, { method: "GET" })
-      .then((res) => res.json())
-      .then((result) => this.setState({ details: result.data, imageDetails: result.data.images.jpg, trailerDetails: result.data.trailer }))
+
+
+        this.props.setProgress(10)
+
+        let id = this.props.match.params.dataId;
+
+        this.props.setProgress(50)
+
+        fetch(`${durl}/${id}`, { method: "GET" })
+          .then((res) => res.json())
+          .then((result) => this.setState({ details: result.data, imageDetails: result.data.images.jpg, trailerDetails: result.data.trailer }))
+        this.props.setProgress(100)
+      }
+
+      getData();
+      this.countRef.current = true;
+
+    }
 
   }
-
 }
+
+
+export default withRouter(Details);
 
