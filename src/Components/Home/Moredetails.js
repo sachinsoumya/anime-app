@@ -3,6 +3,7 @@ import "./Details.css";
 import Review from "./Review";
 import { withRouter } from "react-router-dom";
 import More from "./More";
+import Character from "./Character";
 
 // import { Route } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -128,6 +129,8 @@ class Moredetails extends Component {
               <div class="btn btn-primary btn-lg"><a href="https://www.crunchyroll.com/series/GRGGPG93R/fullmetal-alchemist-brotherhood" class="text-white text-decoration-none">Watch all episodes</a></div>
             </center> */}
                     </div>
+
+                    <Character id={this.props.match.params.dataId} />
 
                     <Review id={this.props.match.params.dataId} />
 

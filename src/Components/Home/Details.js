@@ -3,6 +3,7 @@ import "./Details.css";
 import Review from "./Review";
 import Recomanndation from "./Recomanndation";
 import { withRouter } from 'react-router-dom';
+import Character from "./Character";
 
 
 
@@ -126,6 +127,7 @@ class Details extends Component {
             </div>
 
           </div>
+          <Character id={this.props.match.params.dataId} />
 
           <Review id={this.props.match.params.dataId} />
 
