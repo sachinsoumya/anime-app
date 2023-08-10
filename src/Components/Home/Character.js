@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Carousel from 'react-elastic-carousel';
 import "./Details.css";
-
+import { NavLink , withRouter } from 'react-router-dom'
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -10,7 +10,7 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 }
 ];
 
-export default class Character extends Component {
+ class Character extends Component {
 
 
 
@@ -47,10 +47,14 @@ export default class Character extends Component {
         return item1.voice_actors.map((item2) => {
           if (item2.language === 'English') {
             return (
+             
               <div>
+                 <NavLink to={`/voice/${item2.person.mal_id}`} className="text-decoration-none">
                 <img src={`${item2.person.images.jpg.image_url}`} alt="artistpic" className='rounded-3 lamba shadow-lg' />
+                </NavLink>
                 <div className='w-100 text-center'>{item2.person.name }</div>
               </div>
+              
 
 
             )
@@ -127,3 +131,4 @@ export default class Character extends Component {
 
   }
 }
+export default withRouter(Character);

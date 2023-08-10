@@ -1,0 +1,11 @@
+.animepicWidth{
+    width: 25%;
+}
+
+@media (max-width:914px) {
+    .animepicWidth{
+        width: 50%;
+    }
+    
+    
+}
