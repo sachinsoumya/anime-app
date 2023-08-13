@@ -85,7 +85,7 @@ class Recomanndation extends Component {
                     .then((res) => res.json())
                     .then((result) => result.data.length > 12 ? this.setState({ recommendations: result.data.slice(0, 12) }) : this.setState({ recommendations: result.data }));
             }
-            getData();
+            setTimeout(getData,2000);
             this.countRef.current=true;
 
         }

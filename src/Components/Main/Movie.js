@@ -59,8 +59,8 @@ export default function Movie() {
                 return (
                     <div>
                         <NavLink to={`/type/${item.mal_id}`} className="text-decoration-none">
-                            <div className='position-relative'>
-                                <img src={item.images.jpg.image_url} alt="slide" className='rounded ' />
+                            <div className='position-relative shadow-lg'>
+                                <img src={item.images.jpg.image_url} alt="slide" className='rounded' />
                                 <div className="position-absolute top-0 end-0"><span class="badge rounded-pill text-bg-warning"><i class="bi bi-star-fill mx-1"></i>{item.score}</span></div>
                             </div>
                         </NavLink>

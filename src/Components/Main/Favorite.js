@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const vurl = "https://api.jikan.moe/v4/top/anime?limit=15"
+const vurl = "https://api.jikan.moe/v4/top/anime?limit=15&filter=favorite"
 
 export default function Top () {
 
@@ -24,12 +24,12 @@ export default function Top () {
 
           fetch(`${vurl}`)
                     .then((res) => res.json())
-                    .then((result) => setAnimesList(result.data.slice(8,15)))
+                    .then((result) => setAnimesList(result.data.slice(7,14)))
                     .catch((err) => console.log(err.message));
 
 
             }
-            setTimeout(getData,2000);
+            setTimeout(getData,3000);
            
             isMountedRef.current = true;
 
@@ -62,7 +62,7 @@ export default function Top () {
                     <div>
                       <NavLink to={`/type/${item.mal_id}`} className="text-decoration-none">
                       <div className='position-relative'>
-                        <img src={item.images.jpg.image_url} alt="slide" className='rounded shadow-lg' />
+                        <img src={item.images.jpg.image_url} alt="slide" className='rounded' />
                         <div className="position-absolute top-0 end-0"><span class="badge rounded-pill text-bg-warning"><i class="bi bi-star-fill mx-1"></i>{item.score}</span></div>
                         </div>
                         </NavLink>
@@ -80,7 +80,7 @@ export default function Top () {
     return (
       
       <div>
-        <div className=' my-3 fs-2 fw-bold mx-2 text-center text-md-start'>TOP</div>
+        <div className=' my-3 fs-2 fw-bold mx-2 text-center text-md-start'>FAVORITES</div>
         
         {animesList ?<Carousel breakPoints={breakPoints}>
             

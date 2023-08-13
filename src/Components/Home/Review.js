@@ -102,7 +102,7 @@ export default class Review extends Component {
 
             }
 
-            getData();
+            setTimeout(getData,1500);
             this.countRef.current=true;
             
         }

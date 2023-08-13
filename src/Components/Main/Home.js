@@ -3,6 +3,8 @@ import Carau from './Carau'
 
 import Movie from './Movie'
 import Tv from './Tv'
+import Top from './Top'
+import Favorite from './Favorite'
 
 export default function Home() {
 
@@ -12,6 +14,8 @@ export default function Home() {
 
       <Movie />
       <Tv />
+      <Top />
+      <Favorite />
 
     </div>
   )

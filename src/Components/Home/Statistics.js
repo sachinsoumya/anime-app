@@ -46,7 +46,7 @@ export default class Statistics extends Component {
 
                          <div className="col-6 col-md-4 col-lg-2">
 
-                            <div className="card bg-primary-subtle shadow-lg">
+                            <div className="card shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
                                     Total
                                 </div>
@@ -62,7 +62,7 @@ export default class Statistics extends Component {
 
                         </div>
                         <div className="col-6 col-md-4 col-lg-2">
-                        <div className="card bg-primary-subtle shadow-lg">
+                        <div className="card  shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
                                 <i class="bi bi-eye-fill mx-1"></i> Watching
                                 </div>
@@ -78,7 +78,7 @@ export default class Statistics extends Component {
                             </div>
                         </div>
                         <div className="col-6 col-md-4 col-lg-2">
-                        <div className="card bg-primary-subtle shadow-lg">
+                        <div className="card  shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
                                 <i class="bi bi-hand-thumbs-up-fill mx-1"></i> Completed
                                 </div>
@@ -93,7 +93,7 @@ export default class Statistics extends Component {
                             </div>
                         </div>
                         <div className="col-6 col-md-4 col-lg-2">
-                        <div className="card bg-primary-subtle shadow-lg">
+                        <div className="card  shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
                                 <i className="bi bi-pause-circle-fill mx-1"></i>On hold
                                 </div>
@@ -109,7 +109,7 @@ export default class Statistics extends Component {
                             </div>
                         </div>
                         <div className="col-6 col-md-4 col-lg-2">
-                        <div className="card bg-primary-subtle shadow-lg">
+                        <div className="card  shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
                                 <i className="bi bi-eye-slash-fill mx-1"></i>Dropped
                                 </div>
@@ -124,7 +124,7 @@ export default class Statistics extends Component {
                             </div>
                         </div>
                         <div className="col-6 col-md-4 col-lg-2">
-                        <div className="card bg-primary-subtle shadow-lg">
+                        <div className="card shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
                                <i class="bi bi-bookmark-plus-fill mx-1"></i>Plan to watch
                                     
