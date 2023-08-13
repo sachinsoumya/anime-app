@@ -4,6 +4,7 @@ import Review from "./Review";
 import Recomanndation from "./Recomanndation";
 import { withRouter } from 'react-router-dom';
 import Character from "./Character";
+import Statistics from "./Statistics";
 
 
 
@@ -130,6 +131,8 @@ class Details extends Component {
           <Character id={this.props.match.params.dataId} />
 
           <Review id={this.props.match.params.dataId} />
+
+          <Statistics id={this.props.match.params.dataId}/>
 
 
 

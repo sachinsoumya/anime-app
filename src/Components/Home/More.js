@@ -65,8 +65,8 @@ class More extends Component {
     render() {
 
         return (
-            <div>
-                <div className='display-5 py-3 font1'>Similar</div>
+            <div className='ny-2'>
+                <div className='display-5 my-3 font1'>Similar</div>
                 <div className="row ps-3">
                     {this.getRecommendation()}
                 </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './ArtistDetails.css'
 import './Details.css'
+import {NavLink} from 'react-router-dom'
 
 export default class ArtistDetails extends Component {
 
@@ -53,7 +54,7 @@ export default class ArtistDetails extends Component {
                 return (
                     <tr>
                         <th scope="row">1</th>
-                        <td> <div><img src={`${item.anime.images.jpg.image_url}`} alt="anime" className='animepicWidth rounded-3 shadow-lg' /></div><div className='w-50 fw-bold text-primary'>{item.anime.title}</div> </td>
+                        <td> <NavLink to={`/type/${item.anime.mal_id}`}><div><img src={`${item.anime.images.jpg.image_url}`} alt="anime" className='animepicWidth rounded-3 shadow-lg' /></div></NavLink><div className='w-50 fw-bold text-primary'>{item.anime.title}</div> </td>
                         <td><div><img src={`${item.character.images.jpg.image_url}`} alt="anime" className='rounded-1 shadow-lg' /></div><div className='fw-bold text-primary'>{item.character.name}</div><div className='text-warning'>{item.role}</div></td>
 
                     </tr>
@@ -61,6 +62,10 @@ export default class ArtistDetails extends Component {
             })
         }
 
+    }
+
+    goBack = ()=>{
+        this.props.history.goBack();
     }
 
     render() {

@@ -65,8 +65,8 @@ class Recomanndation extends Component {
     render() {
 
         return (
-            <div>
-                <div className='display-5 py-4 font1'>Similar</div>
+            <div className='my-2'>
+                <div className='display-5 my-1 my-md-4 font1'>Similar</div>
                 <div className="row ps-3">
                     {this.getRecommendation()}
                 </div>

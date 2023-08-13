@@ -4,6 +4,7 @@ import Review from "./Review";
 import { withRouter } from "react-router-dom";
 import More from "./More";
 import Character from "./Character";
+import Statistics from "./Statistics";
 
 // import { Route } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -133,6 +134,8 @@ class Moredetails extends Component {
                     <Character id={this.props.match.params.dataId} />
 
                     <Review id={this.props.match.params.dataId} />
+
+                    <Statistics id={this.props.match.params.dataId}/>
 
 
 
