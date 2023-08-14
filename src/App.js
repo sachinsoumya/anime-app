@@ -9,6 +9,7 @@ import Moredetails from './Components/Home/Moredetails';
 import LoadingBar from 'react-top-loading-bar'
 import Home from './Components/Main/Home';
 import ArtistDetails from './Components/Home/ArtistDetails';
+import CharacterDetails from './Components/Home/CharacterDetails';
 
 
 
@@ -82,6 +83,7 @@ export default class App extends Component {
            <Route path={`/more/:dataId`} render={(routeProps) => <Moredetails {...routeProps} setProgress={this.setProgress}  />} />
           <Route path="/recommendations/:dataId" render={(routeProps) => <Details {...routeProps} setProgress={this.setProgress}  />} />
           <Route path="/voice/:dataId" component={ArtistDetails}/>
+          <Route path="/character/:name/:dataId" component={CharacterDetails}/>
 
           <Footer />
 

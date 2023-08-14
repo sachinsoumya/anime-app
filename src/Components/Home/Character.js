@@ -31,7 +31,9 @@ const breakPoints = [
       return this.state.characterList.map((item) => {
         return (
           <div >
+            <NavLink to={`/character/${item.character.name}/${item.character.mal_id}`} className="text-decoration-none">
             <img src={`${item.character.images.jpg.image_url}`} alt="chracterspic" className='rounded-pill lamba shadow-lg' />
+            </NavLink>
             <div className='w-100 text-center'>{item.character.name}</div>
           </div>
         )
