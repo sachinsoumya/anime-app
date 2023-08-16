@@ -20,7 +20,7 @@ export default function Carau()  {
                 fetch(turl)
                     .then((res) => res.json())
                     .then((result) => setSlideAnime(result.data))
-                    .catch((err) => console.log(err.message));
+                    .catch((err) => alert(`Oops - slider ${err.message} check your internate connection or contact to owner`));
 
             }
             getData();

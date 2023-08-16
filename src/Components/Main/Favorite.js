@@ -25,7 +25,7 @@ export default function Top () {
           fetch(`${vurl}`)
                     .then((res) => res.json())
                     .then((result) => setAnimesList(result.data.slice(7,14)))
-                    .catch((err) => console.log(err.message));
+                    .catch((error) => alert(`Oops - Favorite ${error.message} check your internate connection or contact to owner`));
 
 
             }

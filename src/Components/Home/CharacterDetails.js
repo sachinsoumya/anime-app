@@ -97,7 +97,7 @@ export default class CharacterDetails extends Component {
                     this.props.setProgress(100)
 
                 } catch (error) {
-                    console.log('Error fetching data:', error.message)
+                    alert(`Opps!.., Character details ${error.message} check your internate connection or contact to owner`)
                 }
 
 

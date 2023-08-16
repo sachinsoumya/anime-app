@@ -184,7 +184,7 @@ export default class ArtistDetails extends Component {
                 this.setState({ Artistdetails: result.data })
                 this.props.setProgress(100)
                 }catch(error){
-                    console.error('Error fetching data:', error.message);
+                    alert(`Opps!.., Artist details ${error.message} check your internate connection or contact to owner`)
                 }
 
 

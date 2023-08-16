@@ -28,7 +28,7 @@ export default function Movie() {
                 fetch(`${vurl}`)
                     .then((res) => res.json())
                     .then((result) => setAnimesList(result.data))
-                    .catch((err) => console.log(err.message));
+                    .catch((err) => alert(`Oops -  movie ${err.message} check your internate connection or contact to owner`));
 
 
             }

@@ -97,7 +97,8 @@ export default class Review extends Component {
             const getData = () => {
                 fetch(`${rurl}/${this.props.id}/reviews`, { method: "GET" })
                     .then((res) => res.json())
-                    .then((result) => this.setState({ reviewDetails: result.data }));
+                    .then((result) => this.setState({ reviewDetails: result.data }))
+                    .catch((error)=>alert(`Opps !..review ${error.message} check your internate connection or contact to owner`))
 
 
             }

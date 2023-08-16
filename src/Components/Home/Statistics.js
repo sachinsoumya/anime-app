@@ -125,8 +125,8 @@ export default class Statistics extends Component {
                         </div>
                         <div className="col-6 col-md-4 col-lg-2">
                         <div className="card shadow-lg" style={{backgroundColor:'aqua'}}>
-                                <div className="card-header fw-bold">
-                               <i className="bi bi-bookmark-plus-fill mx-1"></i>Plan to watch
+                                <div className="card-header fw-bold ">
+                               <i className="bi bi-bookmark-plus-fill ms-1"></i>Plan to watch
                                     
                                 </div>
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
@@ -168,9 +168,13 @@ export default class Statistics extends Component {
         if (!this.countRef.current) {
             const getData = async (id) => {
                 // console.log(id);
+                try{
                 const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/statistics`)
                 const result = await res.json();
                 this.setState({ getStatistics: result.data })
+                }catch(error){
+                    alert(`Opps !..statictics ${error.message} check your internate connection or contact to owner`)
+                }
                 // console.log(result);
 
 

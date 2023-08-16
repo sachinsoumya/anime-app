@@ -171,6 +171,7 @@ class Moredetails extends Component {
                 fetch(`${durl}/${id}`, { method: "GET" })
                     .then((res) => res.json())
                     .then((result) => this.setState({ details: result.data, imageDetails: result.data.images.jpg, trailerDetails: result.data.trailer }))
+                    .catch((error)=>alert(`Opps!..Details ${error.message} check your internate connection or contact to owner`))
                 this.props.setProgress(100)
             }
 

@@ -28,7 +28,7 @@ export default function Tv() {
                 fetch(`${vurl}`)
                     .then((res) => res.json())
                     .then((result) => setAnimesList(result.data))
-                    .catch((err) => console.log(err.message));
+                    .catch((error) => alert(`Oops - Tv ${error.message} check your internate connection or contact to owner`));
 
 
             }

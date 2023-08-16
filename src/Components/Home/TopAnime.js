@@ -120,6 +120,7 @@ class TopAnime extends Component {
 
               .then((res) => res.json())
               .then((result) => this.setState({ animeDetails: result.data }))
+              .catch((error)=>alert(`Oops - ${this.props.type} ${error.message} check your internate connection or contact to owner`))
             this.props.setProgress(100)
 
 
@@ -130,6 +131,7 @@ class TopAnime extends Component {
             fetch(`${topUrl}&filter=${this.props.filter}`, { method: "GET" })
               .then((res) => res.json())
               .then((result) => this.setState({ animeDetails: result.data }))
+              .catch((error)=>alert(`Oops - ${this.props.filter} ${error.message} , check your internate connection or contact to owner`))
 
             this.props.setProgress(100);
 
@@ -139,6 +141,7 @@ class TopAnime extends Component {
             fetch(`${topUrl}`, { method: "GET" })
               .then((res) => res.json())
               .then((result) => this.setState({ animeDetails: result.data }))
+              .catch((error)=>alert(`Oops - Top ${error.message} check your internate connection or contact to owner`))
             this.props.setProgress(100);
 
 

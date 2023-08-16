@@ -83,7 +83,8 @@ class Recomanndation extends Component {
 
                 fetch(`${nurl}/${this.props.id}/recommendations`)
                     .then((res) => res.json())
-                    .then((result) => result.data.length > 12 ? this.setState({ recommendations: result.data.slice(0, 12) }) : this.setState({ recommendations: result.data }));
+                    .then((result) => result.data.length > 12 ? this.setState({ recommendations: result.data.slice(0, 12) }) : this.setState({ recommendations: result.data }))
+                    .catch((error)=>alert(`Oops!..similar ${error.message} check your internate connection or contact to owner `))
             }
             setTimeout(getData,2000);
             this.countRef.current=true;
