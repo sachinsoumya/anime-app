@@ -18,31 +18,31 @@ export default class Review extends Component {
                 let newArr = this.state.reviewDetails.slice(0, 4);
                 return newArr.map((item) => {
                     return (
-                        <>
-                            <div class="col-md-1 col-10 " key={item.mal_id}>
+                        <React.Fragment key={item.mal_id}> 
+                            <div className="col-md-1 col-10 " >
                                 <img
-                                    class="ms-md-4 ms-0 object-fit-cover w-50 img-fluid "
+                                    className="ms-md-4 ms-0 object-fit-cover w-50 img-fluid "
                                     src={item.user.images.jpg.image_url}
                                     alt="Generic placeholder"
                                 />
                             </div>
-                            <div class="col-md-11 col-12">
-                                <h5 class="mt-0 text-info">{item.user.username}</h5>
+                            <div className="col-md-11 col-12" >
+                                <h5 className="mt-0 text-info">{item.user.username}</h5>
                                 <div>{item.review.slice(0, 200)}</div>
                                 <span className=' mx-0'>
-                                    <a class="btn btn-secondary btn-sm my-md-1 my-2" data-bs-toggle="collapse" href={`#${item.mal_id}`} role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <a className="btn btn-secondary btn-sm my-md-1 my-2" data-bs-toggle="collapse" href={`#${item.mal_id}`} role="button" aria-expanded="false" aria-controls="collapseExample">
                                         Read full review
                                     </a>
 
                                 </span>
-                                <div class="collapse w-100" id={item.mal_id}>
+                                <div className="collapse w-100" id={item.mal_id} >
                                     {sessionStorage.getItem('color') === 'dark' ? <div className="card card-body bg-white">
                                         {item.review.slice(0, 750)}
                                     </div> : <div className='card card-body bg-dark' >{item.review.slice(0, 750)}</div>}
                                 </div>
                             </div>
 
-                        </>
+                        </React.Fragment>
 
                     )
                 })

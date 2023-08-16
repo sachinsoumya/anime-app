@@ -113,7 +113,7 @@ class Details extends Component {
               {this.state.details.synopsis}
             </div>
             <div>
-              <div className="display-5 font1">Trailer</div>
+              <div className="display-5 mt-3 font1">Trailer</div>
               {this.state.trailerDetails ? <center>
                 <iframe
                   className="w-100  my-4 lamba"
@@ -121,7 +121,7 @@ class Details extends Component {
                   title={this.state.details.title}
                   frameborder="0"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </center> : <div className="h3">No trailer available</div>}
 
@@ -138,7 +138,7 @@ class Details extends Component {
 
           <Recomanndation id={this.props.match.params.dataId} getData={this.getData} />
 
-          <button className="btn btn-primary" onClick={this.goBack}><i class="bi bi-chevron-left"></i>Go Back </button>
+          <button className="btn btn-primary" onClick={this.goBack}><i className="bi bi-chevron-left"></i>Go Back </button>
 
 
         </div>

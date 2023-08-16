@@ -7,11 +7,10 @@ import Top from './Top'
 import Favorite from './Favorite'
 
 export default function Home() {
-
+  
   return (
     <div>
-      <Carau />
-
+      <Carau  />
       <Movie />
       <Tv />
       <Top />

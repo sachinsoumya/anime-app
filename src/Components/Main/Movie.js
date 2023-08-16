@@ -57,11 +57,11 @@ export default function Movie() {
         if (animesList) {
             return animesList.map((item) => {
                 return (
-                    <div>
+                    <div key={item.mal_id}>
                         <NavLink to={`/type/${item.mal_id}`} className="text-decoration-none">
                             <div className='position-relative shadow-lg'>
                                 <img src={item.images.jpg.image_url} alt="slide" className='rounded' />
-                                <div className="position-absolute top-0 end-0"><span class="badge rounded-pill text-bg-warning"><i class="bi bi-star-fill mx-1"></i>{item.score}</span></div>
+                                <div className="position-absolute top-0 end-0"><span className="badge rounded-pill text-bg-warning"><i className="bi bi-star-fill mx-1"></i>{item.score}</span></div>
                             </div>
                         </NavLink>
 
@@ -78,18 +78,18 @@ export default function Movie() {
     return (
 
         <div>
-            <div className=' my-3 fs-2 fw-bold mx-2 text-center text-md-start'>MOVIES</div>
+            <div className=' my-3 fs-2 fw-bold mx-0 mx-md-4  text-center text-md-start'>MOVIES</div>
             {animesList ?
                 <Carousel breakPoints={breakPoints}>
 
                     {fetchData()}
-                    <NavLink to="/movies"><button className='btn btn-secondary'>More <i class="bi bi-arrow-right"></i></button></NavLink>
+                    <NavLink to="/movies"><button className='btn btn-secondary'>More <i className="bi bi-arrow-right"></i></button></NavLink>
 
                 </Carousel>
                 :
                 <div className="text-center">
-                    <div class="spinner-border  " role="status">
-                        <span class="visually-hidden">Loading...</span>
+                    <div className="spinner-border  " role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>}
 

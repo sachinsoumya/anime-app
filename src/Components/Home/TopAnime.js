@@ -31,15 +31,15 @@ class TopAnime extends Component {
       if (this.state.animeDetails.length) {
         return this.state.animeDetails.map((item) => {
           return (
-            <>
+            <React.Fragment key={item.mal_id}>
 
-              <div key={item.mal_id} className='col-12 col-md-4 col-lg-2' >
+              <div  className='col-12 col-md-4 col-lg-2' >
                 <NavLink to={`/type/${item.mal_id}`} className="text-decoration-none">
                   <div className='position-relative'>
                     <figure>
                       <img src={item.images.jpg.image_url} alt='images' className='w-100 h-75 rounded-2 ' />
                       <figcaption className="figure-caption h4 fs-6 pt-2 fw-bold text-primary text-center text-md-start  ">{item.title_english}</figcaption>
-                      <div className='position-absolute top-0 end-0'><span class="badge rounded-pill text-bg-warning"><i class="bi bi-star-fill mx-1"></i>{item.score}</span></div>
+                      <div className='position-absolute top-0 end-0'><span className="badge rounded-pill text-bg-warning"><i className="bi bi-star-fill mx-1"></i>{item.score}</span></div>
 
 
                     </figure>
@@ -47,7 +47,7 @@ class TopAnime extends Component {
                 </NavLink>
 
               </div>
-            </>
+            </React.Fragment>
           )
         })
       }
@@ -87,7 +87,7 @@ class TopAnime extends Component {
 
         </div>
 
-        <button className="btn btn-primary" onClick={this.goBack}><i class="bi bi-chevron-left"></i>Go Home</button>
+        <button className="btn btn-primary" onClick={this.goBack}><i className="bi bi-chevron-left"></i>Go Home</button>
 
 
       </div>

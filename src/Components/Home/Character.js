@@ -30,7 +30,7 @@ const breakPoints = [
     if (this.state.characterList) {
       return this.state.characterList.map((item) => {
         return (
-          <div >
+          <div key={item.character.mal_id}>
             <NavLink to={`/character/${item.character.name}/${item.character.mal_id}`} className="text-decoration-none">
             <img src={`${item.character.images.jpg.image_url}`} alt="chracterspic" className='rounded-pill lamba shadow-lg' />
             </NavLink>
@@ -86,21 +86,21 @@ const breakPoints = [
       <div>
         <div className="display-5 my-2 font1">Characters</div>
         {characterList ?
-          <Carousel breakPoints={breakPoints}>
+          <Carousel breakPoints={breakPoints} className='my-3'>
 
             {this.fetchData()}
 
           </Carousel>
 
           : <div className="text-center">
-            <div class="spinner-border  " role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border  " role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>}
 
           <div className="display-5 my-2 font1">Voice Artists</div>
 
-        <Carousel breakPoints={breakPoints}>
+        <Carousel breakPoints={breakPoints} className='my-4'>
           {this.fetchArtist()}
 
         </Carousel>
@@ -117,7 +117,7 @@ const breakPoints = [
 
     if (!this.countRef.current) {
       const getData = async (id) => {
-        console.log(id);
+        // console.log(id);
         const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`)
         const result = await res.json();
         this.setState({ characterList: result.data.slice(0, 8) })

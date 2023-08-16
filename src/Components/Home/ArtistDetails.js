@@ -50,12 +50,12 @@ export default class ArtistDetails extends Component {
 
     workDone = () => {
         if (this.state.Artistdetails) {
-            return this.state.Artistdetails.voices.slice(0, 10).map((item) => {
+            return this.state.Artistdetails.voices.slice(0, 10).map((item ,index) => {
                 return (
-                    <tr>
+                    <tr key={index}>
                         <th scope="row">1</th>
                         <td> <NavLink to={`/type/${item.anime.mal_id}`}><div><img src={`${item.anime.images.jpg.image_url}`} alt="anime" className='animepicWidth rounded-3 shadow-lg' /></div></NavLink><div className='w-50 fw-bold text-primary'>{item.anime.title}</div> </td>
-                        <td><div><img src={`${item.character.images.jpg.image_url}`} alt="anime" className='rounded-1 shadow-lg' /></div><div className='fw-bold text-primary'>{item.character.name}</div><div className='text-warning'>{item.role}</div></td>
+                        <td><div><img src={`${item.character.images.jpg.image_url}`} alt="anime" className='rounded-1 shadow-lg' /></div><div className='fw-bold text-primary'>{item.character.name}</div><div className='badge text-bg-warning'>{item.role}</div></td>
 
                     </tr>
                 )
@@ -69,11 +69,11 @@ export default class ArtistDetails extends Component {
     }
 
     render() {
-        console.log(this.state.Artistdetails)
+        // console.log(this.state.Artistdetails)
 
         if (this.state.Artistdetails) {
             return (
-                <div className="my-5 container pt-3 pt-md-4 ">
+                <div className="my-5 container pt-3 pt-md-4 " >
                     <div className="row justify-content-center">
                         <div className="col-12 col-md-5 text-center text-md-start">
                             <img
@@ -109,32 +109,8 @@ export default class ArtistDetails extends Component {
 
 
                                 </div>
-                                {/* <div className="d-flex mt-3 mt-md-1 mt-lg-4  fs-6 flex-wrap pt-1 fw-bold font ">
-                        <div>Episodes -</div>
-                        <div>{this.state.details.episodes}</div>
-      
-      
-                      </div> */}
-                                {/* <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font">
-                        <div>Rank -</div>
-                        <div>{this.state.details.rank}</div>
-                      </div> */}
-                                {/* <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font ">
-                        <div>Favorites -</div>
-                        <div>{this.state.details.favorites}</div>
-                      </div> */}
-                                {/* <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold text-warning font ">
-                        <div>IMDB -</div>
-                        <div>{this.state.details.score}</div>
-                      </div> */}
-                                {/* <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font  ">
-                        <div>Popularity -</div>
-                        <div>{this.state.details.popularity}</div>
-                      </div> */}
-                                {/* <div className="d-flex mt-3  mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font ">
-                        <div>Year -</div>
-                        <div>{this.state.details.year}</div>
-                      </div> */}
+                              
+                             
 
 
 
@@ -173,7 +149,7 @@ export default class ArtistDetails extends Component {
 
 
 
-                    <button className="btn btn-primary" onClick={this.goBack}><i class="bi bi-chevron-left"></i>Go Back </button>
+                    <button className="btn btn-primary" onClick={this.goBack}><i className="bi bi-chevron-left"></i>Go Back </button>
 
 
                 </div>
@@ -194,14 +170,22 @@ export default class ArtistDetails extends Component {
 
     componentDidMount() {
 
-        console.log(this.props.match.params.dataId)
+        // console.log(this.props.match.params.dataId)
 
         if (!this.countRef.current) {
             const getData = async (id) => {
-                console.log(id);
+                try{
+                this.props.setProgress(10)
+                // console.log(id);
                 const res = await fetch(`https://api.jikan.moe/v4/people/${id}/full`)
+                this.props.setProgress(50)
                 const result = await res.json();
+                this.props.setProgress(70)
                 this.setState({ Artistdetails: result.data })
+                this.props.setProgress(100)
+                }catch(error){
+                    console.error('Error fetching data:', error.message);
+                }
 
 
 

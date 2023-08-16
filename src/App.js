@@ -70,7 +70,7 @@ export default class App extends Component {
             onLoaderFinished={() => this.setProgress(0)}
           />
 
-          <Route exact path="/"> <Home  /></Route>
+          <Route exact path="/"> <Home setProgress={this.setProgress} /></Route>
           <Route exact path="/top"> <TopAnime setProgress={this.setProgress} title="top" /></Route>
           <Route path="/movies"> <TopAnime  setProgress={this.setProgress} type="movie" title="movie" /></Route>
           <Route path="/series"> <TopAnime setProgress={this.setProgress} type="tv" title="TV" /></Route>
@@ -82,8 +82,8 @@ export default class App extends Component {
           {/* <Route path={`/more/:dataId`} component={Moredetails} /> */}
            <Route path={`/more/:dataId`} render={(routeProps) => <Moredetails {...routeProps} setProgress={this.setProgress}  />} />
           <Route path="/recommendations/:dataId" render={(routeProps) => <Details {...routeProps} setProgress={this.setProgress}  />} />
-          <Route path="/voice/:dataId" component={ArtistDetails}/>
-          <Route path="/character/:name/:dataId" component={CharacterDetails}/>
+          <Route path="/voice/:dataId"  render={(routeProps) => <ArtistDetails {...routeProps} setProgress={this.setProgress}  />}/>
+          <Route path="/character/:name/:dataId"  render={(routeProps) => <CharacterDetails {...routeProps} setProgress={this.setProgress}  />}/>
 
           <Footer />
 

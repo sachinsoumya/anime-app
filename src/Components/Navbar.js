@@ -15,7 +15,7 @@ getData = (e) => {
     const v = e.target.value;
     console.log(v.length);
     if (v.length <=1) {
-        this.props.history.push('/');
+        this.props.history.push('/top');
     } else {
         console.log(this.props.location.pathname);
         this.props.history.push(`${this.props.location.pathname}`);
@@ -68,7 +68,7 @@ getData = (e) => {
 
                             </ul>
                             <form className="d-flex" >
-                                <input className="form-control me-2" type="search" placeholder="search upto 3 chars" aria-label="Search" id="searchValue"  maxlength="3"  onChange={this.getData} />
+                                <input className="form-control me-2" type="search" placeholder="search upto 3 chars" aria-label="Search" id="searchValue"  maxLength="3"  onChange={this.getData} />
                                 <NavLink  to="/search"> <button className="btn btn-outline-light" type="button" ><i className="bi bi-search"></i></button></NavLink>
                             </form>
                             {this.props.color === "white" ?

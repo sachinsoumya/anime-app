@@ -27,10 +27,10 @@ class More extends Component {
                 return this.state.recommendations.map((item) => {
                     return (
 
-                        <>
+                        <React.Fragment key={item.entry.mal_id} >
 
 
-                            <div className="col-4 col-md-3 col-lg-2 my-3 my-lg-0 " key={item.entry.mal_id} >
+                            <div className="col-4 col-md-3 col-lg-2 my-3 my-lg-0 " >
                                 <NavLink to={`/recommendations/${item.entry.mal_id}`} className="text-decoration-none " >
                                     <img src={item.entry.images.jpg.image_url} alt="pic" className="w-75 rounded-2" />
                                     <div className="h6 text-primary">{item.entry.title}</div>
@@ -39,7 +39,7 @@ class More extends Component {
                             </div>
 
 
-                        </>
+                        </React.Fragment>
 
                     )
                 })
