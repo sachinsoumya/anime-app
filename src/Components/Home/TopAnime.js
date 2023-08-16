@@ -98,7 +98,7 @@ class TopAnime extends Component {
   componentDidMount() {
     if (!this.countRef.current) {
       const getData = () => {
-        console.log(this.props.setProgress);
+        // console.log(this.props.setProgress);
 
         this.props.setProgress(10);
 

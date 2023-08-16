@@ -22,7 +22,8 @@ export default class CharacterDetails extends Component {
         if (this.state.characterDetails) {
             return this.state.characterDetails.map((item) => {
                 return (
-                    <div key={item.mal_id}>
+                    // <React.Fragment key={item.mal_id}>
+                    <div key={item.anime.mal_id}>
                         <div className="card my-3 w-75 mx-auto border border-white" >
                             <div className="row g-0">
                                 <div className="col-md-2 ">
@@ -41,6 +42,7 @@ export default class CharacterDetails extends Component {
                         </div>
 
                     </div>
+                    // </React.Fragment>
 
                 )
 

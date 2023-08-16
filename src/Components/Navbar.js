@@ -34,9 +34,9 @@ getData = (e) => {
         return (
             <div>
                 
-                <nav className="navbar navbar-expand-md bg-body-tertiary bg-dark fixed-top" data-bs-theme="dark">
+                <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark fixed-top" data-bs-theme="dark">
                     <div className="container-fluid">
-                        <NavLink className="navbar-brand fw-bold text-warning" to="/">Animick.com</NavLink>
+                        <NavLink className="navbar-brand fw-bold text-warning" to="/"><img width="25" height="25" src="https://img.icons8.com/color/25/naruto.png" alt="naruto" className='mx-2 img-fluid'/>Animick.com</NavLink>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>

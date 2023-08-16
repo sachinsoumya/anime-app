@@ -64,7 +64,7 @@ export default class Statistics extends Component {
                         <div className="col-6 col-md-4 col-lg-2">
                         <div className="card  shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
-                                <i class="bi bi-eye-fill mx-1"></i> Watching
+                                <i className="bi bi-eye-fill mx-1"></i> Watching
                                 </div>
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
                                 <div className="card-body">
@@ -80,7 +80,7 @@ export default class Statistics extends Component {
                         <div className="col-6 col-md-4 col-lg-2">
                         <div className="card  shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold">
-                                <i class="bi bi-hand-thumbs-up-fill mx-1"></i> Completed
+                                <i className="bi bi-hand-thumbs-up-fill mx-1"></i> Completed
                                 </div>
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
                                 <div className="card-body">

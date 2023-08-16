@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter as Router, Route ,Redirect} from 'react-router-dom/cjs/react-router-dom.min';
 
 import Footer from './Components/Footer';
 import TopAnime from './Components/Home/TopAnime';
@@ -71,6 +71,7 @@ export default class App extends Component {
           />
 
           <Route exact path="/"> <Home setProgress={this.setProgress} /></Route>
+          
           <Route exact path="/top"> <TopAnime setProgress={this.setProgress} title="top" /></Route>
           <Route path="/movies"> <TopAnime  setProgress={this.setProgress} type="movie" title="movie" /></Route>
           <Route path="/series"> <TopAnime setProgress={this.setProgress} type="tv" title="TV" /></Route>
@@ -84,6 +85,8 @@ export default class App extends Component {
           <Route path="/recommendations/:dataId" render={(routeProps) => <Details {...routeProps} setProgress={this.setProgress}  />} />
           <Route path="/voice/:dataId"  render={(routeProps) => <ArtistDetails {...routeProps} setProgress={this.setProgress}  />}/>
           <Route path="/character/:name/:dataId"  render={(routeProps) => <CharacterDetails {...routeProps} setProgress={this.setProgress}  />}/>
+
+          <Redirect from ="/" to="/" />
 
           <Footer />
 

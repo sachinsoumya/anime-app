@@ -85,7 +85,7 @@ export default function Top () {
         {animesList ?<Carousel breakPoints={breakPoints}>
             
             {fetchData()}
-            <button className='btn btn-secondary'>More<i className="bi bi-arrow-right"></i></button>
+            <NavLink to="/favorite"><button className='btn btn-secondary'>More<i className="bi bi-arrow-right"></i></button></NavLink>
 
         </Carousel>: <div className="text-center">
                     <div className="spinner-border  " role="status">
