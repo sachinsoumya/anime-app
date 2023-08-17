@@ -71,7 +71,7 @@ export default class Footer extends Component {
           </div> */}
 
         
-        <div className='bg-dark text-center text-white py-1'><i className="bi bi-c-circle me-1"></i>copyright 2023 Animick | Sachin | India</div>
+        <div className='bg-dark text-center text-white py-1'><i className="bi bi-c-circle me-1"></i>Copyright 2023 Animick | Sachin | India</div>
         </div>
 
 
