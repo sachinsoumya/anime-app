@@ -68,7 +68,7 @@ export default function Carau()  {
 
         return (
             <div className='my-5 h1  py-2'>
-                <div id="carouselExampleRide" className="carousel slide " data-bs-ride="true">
+                <div id="carouselExampleRide" className="carousel slide  " data-bs-ride="true">
                     <div className="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="1" aria-label="Slide 2"></button>

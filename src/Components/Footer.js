@@ -26,16 +26,16 @@ export default class Footer extends Component {
               <div className='text-start'>
                 <div className='fw-bold mb-2 text-warning'>Connect with us</div>
                 <div>
-                  <a href="https://www.facebook.com/" className="link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover "> <i className="bi bi-facebook fs-4 me-2"></i>Facebook</a>
+                  <a href="https://www.facebook.com/" className="link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover " target='blank'> <i className="bi bi-facebook fs-4 me-2"></i>Facebook</a>
                 </div>
                 <div  >
-                  <a href="https://www.instagram.com/sachinsoumya/" className='link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover '><i className="bi bi-instagram fs-4 me-2 "></i>Instagram</a>
+                  <a href="https://www.instagram.com/sachinsoumya/" className='link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover ' target='blank'><i className="bi bi-instagram fs-4 me-2 "></i>Instagram</a>
                 </div>
                 <div  >
-                  <a href="https://www.youtube.com/channel/UC3WgqcI1eJaLSfg2h6fLTyg" className='link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover '><i className="bi bi-youtube fs-4 me-2 "></i>Youtube</a>
+                  <a href="https://www.youtube.com/channel/UC3WgqcI1eJaLSfg2h6fLTyg" className='link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover ' target='blank'><i className="bi bi-youtube fs-4 me-2 "></i>Youtube</a>
                 </div>
                 <div  >
-                  <a href="https://twitter.com/SoumyaSachinPa1" className='link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover '><i className="bi bi-twitter fs-4 me-2"></i>Twitter</a>
+                  <a href="https://twitter.com/SoumyaSachinPa1" className='link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover ' target='blank'><i className="bi bi-twitter fs-4 me-2"></i>Twitter</a>
                 </div>
 
               </div>

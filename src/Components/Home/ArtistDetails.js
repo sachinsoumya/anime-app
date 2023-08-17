@@ -105,7 +105,7 @@ export default class ArtistDetails extends Component {
 
                                 <div className="d-flex mt-3 mt-md-1 mt-lg-4 fs-6 flex-wrap pt-1 fw-bold font justify-content-center justify-content-md-start">
                                     <div >Website -</div>
-                                    <div ><a href={`${this.state.Artistdetails.website_url}`}>{this.state.Artistdetails.website_url}</a></div>
+                                    <div ><a href={`${this.state.Artistdetails.website_url}`} target='blank' className='link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'>{this.state.Artistdetails.website_url}</a></div>
 
 
                                 </div>
