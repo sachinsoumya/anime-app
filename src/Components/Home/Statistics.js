@@ -53,7 +53,7 @@ export default class Statistics extends Component {
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
                                 <div className="card-body">
                                     <div className=" mb-0 fs-2 fw-semibold">
-                                        <div>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.total}`} duration={2} delay={0}/>}</div>
+                                        <div className='fs-4'>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.total}`} duration={2} delay={0}/>}</div>
                                        
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@ export default class Statistics extends Component {
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
                                 <div className="card-body">
                                     <div className=" mb-0 fs-2 fw-semibold">
-                                    <div>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.watching}`} duration={2} delay={0}/>}</div>
+                                    <div className='fs-4'>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.watching}`} duration={2} delay={0}/>}</div>
                                        
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@ export default class Statistics extends Component {
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
                                 <div className="card-body">
                                     <div className=" mb-0 fs-2 fw-semibold">
-                                    <div>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.completed}`} duration={2} delay={0}/>}</div>
+                                    <div className='fs-4'>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.completed}`} duration={2} delay={0}/>}</div>
                                        
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@ export default class Statistics extends Component {
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
                                 <div className="card-body">
                                     <div className=" mb-0 fs-2 fw-semibold">
-                                    <div>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.on_hold}`} duration={2} delay={0}/>}</div>
+                                    <div className='fs-4'>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.on_hold}`} duration={2} delay={0}/>}</div>
                                        
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@ export default class Statistics extends Component {
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
                                 <div className="card-body">
                                     <div className=" mb-0 fs-2 fw-semibold">
-                                    <div>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.dropped}`} duration={2} delay={0}/>}</div>
+                                    <div className='fs-4'>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.dropped}`} duration={2} delay={0}/>}</div>
                                        
                                     </div>
                                 </div>
@@ -126,14 +126,14 @@ export default class Statistics extends Component {
                         <div className="col-6 col-md-4 col-lg-2">
                         <div className="card shadow-lg" style={{backgroundColor:'aqua'}}>
                                 <div className="card-header fw-bold ">
-                               <i className="bi bi-bookmark-plus-fill ms-1"></i>Plan to watch
+                               <i className="bi bi-bookmark-plus-fill ms-0 ms-md-1"></i>Plan to watch
                                     
                                 </div>
                                 <ScrollTrigger onEnter={()=>this.setCounter(true)} onExit={()=>this.setCounter(false)}>
 
                                 <div className="card-body">
                                     <div className=" mb-0 fs-2 fw-semibold">
-                                    <div>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.plan_to_watch}`} duration={2} delay={0}/>}</div>
+                                    <div className='fs-4'>{this.state.counter && <CountUp start={0} end={`${this.state.getStatistics.plan_to_watch}`} duration={2} delay={0}/>}</div>
                                        
                                        
                                     </div>
