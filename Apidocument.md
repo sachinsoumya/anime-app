@@ -48,6 +48,8 @@ page 3 - Voice Artist Details page
 
 Getting details of voice artist - https://api.jikan.moe/v4/people/${id}/full (GET)
 
+--------------------------------------------------------------------------------------------------------------------------
+
 page 4 - Character Details page
 
 Getting details of anime characters - https://api.jikan.moe/v4/characters/${id}/anime (GET)
